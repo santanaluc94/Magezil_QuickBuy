@@ -1,0 +1,15 @@
+<?php
+$currentProduct = $block->getCurrentProduct();
+$quickBuyConfig = $block->getQuickBuyConfig();
+$quickBuyLabel = $quickBuyConfig->hasButtonLabel() ? $quickBuyConfig->getButtonLabel() : __('Quick Buy');
+
+?>
+<?php if ($quickBuyConfig->isEnableInProductPage()) : ?>
+    <div class="box-tocart">
+        <div class="actions">
+            <a href="<?= $block->getUrlQuickBuy() ?>" class="action primary tocart" id="quick_buy_product_<?= $currentProduct->getId() ?>" style="text-align: center;">
+                <span><?= $quickBuyLabel ?></span>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>
